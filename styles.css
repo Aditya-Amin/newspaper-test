@@ -1,0 +1,165 @@
+/* ========== Default Styles ========== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+a{
+    text-decoration: none;
+    font-family: 'sans-serif';
+}
+
+p{
+    font-size: 13px;
+    font-family: 'sans-serif';
+}
+
+ul{
+    list-style-type: none;
+}
+
+.container{
+    width: 90%;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.section-title {
+    padding: 0 7px;
+    margin: 25px 0;
+    text-transform: uppercase;
+}
+
+
+/* ========== Typography ========= */
+
+h1, h2, h3{
+    font-family: 'sans-serif';
+}
+
+h1{
+    font-size: 30px;
+}
+
+h2{
+    font-size: 22px;
+}
+
+h3{
+    font-size: 16px;
+}
+
+
+/* ========== Home Page ========== */
+#banner-section {
+    height: 400px;
+    overflow: hidden;
+}
+
+#banner-image {
+    width: 100%;
+    height: 100%;
+}
+
+#header-warpper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #272222bd;
+    z-index: 99999;
+}
+
+#logo h2 {
+    color: #ff5722;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+
+/* ===== menu ===== */
+#menu {
+    display: flex;
+    align-items: center;
+}
+
+#menu li a {
+    font-size: 14px;
+    color: white;
+    padding: 20px 25px;
+    display: block;
+}
+
+#menu li:hover>a{
+    color: #ff5722;
+    transition: 0.3s ease;
+}
+
+
+/* ===== news item ===== */
+.news-item {
+    width: 300px;
+    padding: 0 8px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.news-item img {
+    width: 100%;
+    height: 160px;
+}
+
+.news-date {
+    width: 90px;
+    height: 60px;
+    position: absolute;
+    top: 37%;
+    right: 0;
+    background: #ff5722;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 2px 7px rgba(0,0,0,0.5);
+    padding: 7px;
+}
+
+.year-month {
+    text-align: center;
+}
+
+.year-month span {
+    font-size: 14px;
+    display: block;
+}
+
+.news-item h3 {
+    margin-top: 15px;
+}
+
+.news-category {
+    background: #ff5722;
+    padding: 7px 10px;
+    display: inline-flex;
+    margin-top: 20px;
+    color: white;
+    font-size: 14px;
+    box-shadow: 1px 2px 3px;
+}
