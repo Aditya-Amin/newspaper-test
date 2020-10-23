@@ -10,13 +10,15 @@ if ( isset($_GET['code']) ) {
     $googleClient->setAccessToken( $token['access_token'] );
     $_SESSION['access_token'] = $token['access_token'];
 
-    echo $token;
+    print_r($googleClient);
     
     // get profile info
     $google_oauth = new Google_Service_Oauth2($googleClient);
     $google_account_info = $google_oauth->userinfo->get();
     $email =  $google_account_info->email;
     $name =  $google_account_info->name;
+
+    print_r($google_oauth);
 
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
