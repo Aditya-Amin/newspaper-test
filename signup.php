@@ -20,8 +20,10 @@ if ( isset($_GET['code']) ) {
 
     // print_r($google_oauth);
 
-    // $_SESSION['name'] = $name;
-    // $_SESSION['email'] = $email;
+    $_SESSION['name'] = $name;
+    $_SESSION['email'] = $email;
+
+    echo $_SESSION['name'];
     // header( "Location: newspaper.php" );
 // now you can use this profile info to create account in your website and make user logged in.
 } if ( isset($_REQUEST['logout']) ){
