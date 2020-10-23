@@ -1,5 +1,5 @@
 <?php
-require_once( dirname(__DIR__) . '/vendor/autoload.php' );
+require_once( '/vendor/autoload.php' );
 // init configuration
 $clientID = '464996402201-jeeonc4names3jc2heupok1n31idg19f.apps.googleusercontent.com';
 $clientSecret = 'BdJ8pZyvjFIo5NVg4LbyYuBs';
