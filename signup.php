@@ -23,8 +23,8 @@ if ( isset($_GET['code']) ) {
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
 
-    header( "Location:" . filter_var( $_SERVER['HTTP_HOST'] . 'newspaper.php' , FILTER_SANITIZE_URL ) );
-
+    header( "Location: newspaper.php" );
+    
 } if ( isset($_REQUEST['logout']) ){
     session_start();
     unset($_SESSION['access_token']);
