@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['access_token'])){
-    header( "Location: " . filter_var( $_SERVER['HTTP_HOST'], FILTER_SANITIZE_URL ) );
+    header( "Location: index.php" );
 }
 require_once('lib/Curl.php');
 require_once( 'auth/Auth.php' );
