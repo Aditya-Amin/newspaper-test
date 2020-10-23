@@ -14,8 +14,8 @@
     public function googleLogin(){
         require_once( dirname(__DIR__) . '/vendor/autoload.php' );
         // init configuration
-        $clientID = '216558114057-mga0n3nj81k0pbcm6scr4813496pb8i9.apps.googleusercontent.com';
-        $clientSecret = 'aTjGtYW1zZChY2iItPjUdbtN';
+        $clientID = '';
+        $clientSecret = '';
         $redirectUri = 'https://glacial-fjord-18098.herokuapp.com/signup.php';
         
         // create Client Request to access Google API
