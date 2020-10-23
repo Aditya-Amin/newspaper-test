@@ -9,6 +9,8 @@ if ( isset($_GET['code']) ) {
     $token = $googleClient->fetchAccessTokenWithAuthCode( $_GET['code'] );
     $googleClient->setAccessToken( $token['access_token'] );
     $_SESSION['access_token'] = $token['access_token'];
+
+    echo $token;
     
     // get profile info
     $google_oauth = new Google_Service_Oauth2($googleClient);
