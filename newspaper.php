@@ -1,5 +1,13 @@
 <?php
+session_start();
+if(!isset($_SESSION['access_token'])){
+    header( "Location: " . filter_var( $_SERVER['HTTP_HOST'], FILTER_SANITIZE_URL ) );
+}
 require_once('lib/Curl.php');
+require_once( 'auth/Auth.php' );
+
+
+$auth = new Auth();
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +33,12 @@ require_once('lib/Curl.php');
                         <ul id="menu">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="newspaper.php">Newspaper</a></li>
-                            <li><a href="signup.php">Signup</a></li>
+                            <li>
+                                <a href="<?php echo $auth->googleLogin(); ?>">Signup</a>
+                                <?php if(isset($_SESSION['access_token'])): ?>
+                                <a href="signup.php?logout=true" style="color: #ff5722;"><?php echo $_SESSION['name']; ?></a>
+                                <?php endif; ?>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -50,7 +63,7 @@ require_once('lib/Curl.php');
             $politics = $getAllPoliticsNews["response"]["results"];
             ?>
             <h1 class="section-title">Politics</h1>
-            <div class="wrapper flex-wrap">
+            <div class="wrapper flex-wrap flex-start">
                 <?php if(!empty($politics)): ?>
                 <?php foreach($politics as $item): ?>
                 <div class="news-item">
@@ -76,7 +89,7 @@ require_once('lib/Curl.php');
             $sports = $getAllSportsNews["response"]["results"];
             ?>
             <h1 class="section-title">Sports</h1>
-            <div class="wrapper flex-wrap">
+            <div class="wrapper flex-wrap flex-start">
                 <?php if(!empty($sports)): ?>
                 <?php foreach($sports as $item): ?>
                 <div class="news-item">
@@ -102,7 +115,7 @@ require_once('lib/Curl.php');
             $fashion = $getAllFashionNews["response"]["results"];
             ?>
             <h1 class="section-title">Fashion</h1>
-            <div class="wrapper flex-wrap">
+            <div class="wrapper flex-wrap flex-start">
                 <?php if(!empty($fashion)): ?>
                 <?php foreach($fashion as $item): ?>
                 <div class="news-item">

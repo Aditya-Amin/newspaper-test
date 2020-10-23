@@ -33,6 +33,11 @@ ul{
     align-items: center;
 }
 
+
+.flex-start{
+    justify-content: flex-start;
+}
+
 .section {
     padding: 80px 0;
 }
@@ -152,6 +157,10 @@ h3{
 
 .news-item h3 {
     margin-top: 15px;
+}
+
+.news-item h3 a{
+    color: #272222bd;
 }
 
 .news-category {

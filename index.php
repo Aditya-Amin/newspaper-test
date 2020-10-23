@@ -1,5 +1,10 @@
 <?php
-require_once('lib/Curl.php');
+session_start();
+require_once( 'lib/Curl.php' );
+require_once( 'auth/Auth.php' );
+
+
+$auth = new Auth();
 $getAllNews = Curl::get("https://content.guardianapis.com/search?api-key=test");
 $news = $getAllNews["response"]["results"];
 ?>
@@ -27,7 +32,12 @@ $news = $getAllNews["response"]["results"];
                         <ul id="menu">
                             <li><a href="index.php">Home</a></li>
                             <li><a href="newspaper.php">Newspaper</a></li>
-                            <li><a href="signup.php">Signup</a></li>
+                            <li>
+                                <a href="<?php echo $auth->googleLogin(); ?>">Signup</a>
+                                <?php if(isset($_SESSION['access_token'])):?>
+                                <a href="signup.php?logout=true" style="color: #ff5722;"><?php echo $_SESSION['name']; ?></a>
+                                <?php endif; ?>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -47,7 +57,7 @@ $news = $getAllNews["response"]["results"];
     <!-- news start -->
     <div class="section">
         <div class="container">
-            <div class="wrapper flex-wrap">
+            <div class="wrapper flex-wrap flex-start">
                 <?php if(!empty($news)): ?>
                 <?php foreach($news as $item): ?>
                 <div class="news-item">
