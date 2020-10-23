@@ -23,9 +23,8 @@ if ( isset($_GET['code']) ) {
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
 
-    echo $_SESSION['name'];
-    // header( "Location: newspaper.php" );
-// now you can use this profile info to create account in your website and make user logged in.
+    header( "Location:" . filter_var( $_SERVER['HTTP_HOST'] . 'newspaper.php' , FILTER_SANITIZE_URL ) );
+
 } if ( isset($_REQUEST['logout']) ){
     session_start();
     unset($_SESSION['access_token']);
