@@ -6,6 +6,7 @@ $googleClient = $auth->googleLogin();
 // authenticate code from Google OAuth Flow
 if ( isset($_GET['code']) ) {
     session_start();
+    echo "ok";
     // $token = $googleClient->fetchAccessTokenWithAuthCode( $_GET['code'] );
     // $googleClient->setAccessToken( $token['access_token'] );
     // $_SESSION['access_token'] = $token['access_token'];
