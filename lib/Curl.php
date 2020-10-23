@@ -3,12 +3,14 @@
 
 /**
  * Curl class for handling the API requests
- * 
+ * HTTP request handler
  */
 
 
  class Curl {
 
+
+    // HTTP GET request
     public static function get($url) {
         $_init_ = curl_init();
         $options = [

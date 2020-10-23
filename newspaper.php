@@ -3,11 +3,12 @@ session_start();
 if(!isset($_SESSION['access_token'])){
     header( "Location: index.php" );
 }
-require_once('lib/Curl.php');
+require_once( 'lib/Curl.php' );
 require_once( 'auth/Auth.php' );
 
 
 $auth = new Auth();
+$googleClient = $auth->googleLogin();
 ?>
 
 <!DOCTYPE html>
@@ -34,9 +35,10 @@ $auth = new Auth();
                             <li><a href="index.php">Home</a></li>
                             <li><a href="newspaper.php">Newspaper</a></li>
                             <li>
-                                <a href="<?php echo $auth->googleLogin(); ?>">Signup</a>
                                 <?php if(isset($_SESSION['access_token'])): ?>
-                                <a href="signup.php?logout=true" style="color: #ff5722;"><?php echo $_SESSION['name']; ?></a>
+                                    <a title="Click To Logout" href="signup.php?logout" style="color: #ff5722;"><?php echo $_SESSION['name']; ?></a>
+                                <?php else: ?>
+                                    <a href="<?php echo $googleClient->createAuthUrl(); ?>">Signup</a>
                                 <?php endif; ?>
                             </li>
                         </ul>
